@@ -1,0 +1,86 @@
+@charset "utf-8";
+body {
+	font-family: "Helvetica", "YuGothic Medium", "Yu Gothic Medium", "游ゴシック Medium", "游ゴシック体 Medium", YuGothic, "Yu Gothic", "游ゴシック", "游ゴシック体", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+.wrapper {
+	display: flex;
+}
+
+.img_left {
+	width: 80%;
+	height: 100vh;
+	background-image: url(../img/bg.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	-moz-background-size: cover;
+	background-size: cover;
+	background-color: #a7a7a7;
+}
+
+.item_right {
+	width: 30%;
+	margin-top: 40px;
+	margin-right: 80px;
+	margin-left: 50px;
+}
+
+.wellcome {
+	margin-bottom: 25px;
+	font-size: 20px;
+}
+
+.formItems {
+	margin-bottom: 20px;
+}
+
+.aInput {
+	width: 100%;
+	height: 25px;
+}
+
+.subBtn {
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	background: #668ad8;
+	/*ボタン色*/
+	color: #FFF;
+	border-bottom: solid 4px #627295;
+	border-radius: 3px;
+}
+
+.subBtn:active {
+	-ms-transform: translateY(4px);
+	-webkit-transform: translateY(4px);
+	transform: translateY(4px);
+	/*下に動く*/
+	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+	/*影を小さく*/
+	border-bottom: none;
+}
+
+
+/*ここから下がスマホ対応のCSS*/
+
+@media screen and (max-width:480px) {
+	html {
+		font-size: 56.25%;
+	}
+	.img_left {
+		display: none;
+	}
+	.item_right {
+		width: 100%;
+		margin-top: 40px;
+		margin-right: 60px;
+		margin-left: 50px;
+	}
+	.aInput {
+		width: 100%;
+		height: 20px;
+	}
+}
