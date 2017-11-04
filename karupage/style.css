@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ccc;
+
+}
+.wrapper {
+    margin: 0 auto;
+    width: 480px;
+
+    background-color: #D9EAFE;
+    border-radius: 5px 5px 0 0;
+}
+.vcard {
+  text-align: center;
+}
+.name {
+  font-weight: bold;
+}
