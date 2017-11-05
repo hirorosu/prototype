@@ -63,6 +63,10 @@ body {
 	border-bottom: none;
 }
 
+.urlLink {
+	color: #668ad8;
+}
+
 
 /*ここから下がスマホ対応のCSS*/
 
