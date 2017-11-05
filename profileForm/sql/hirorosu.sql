@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2017 年 11 月 05 日 13:18
+-- Generation Time: 2017 年 11 月 05 日 15:45
 -- サーバのバージョン： 5.6.21
 -- PHP Version: 5.6.3
 
@@ -23,26 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `test`
---
-
-CREATE TABLE IF NOT EXISTS `test` (
-`id` int(11) NOT NULL,
-  `name` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pass` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `indate` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- テーブルのデータのダンプ `test`
---
-
-INSERT INTO `test` (`id`, `name`, `pass`, `indate`) VALUES
-(1, 'HIRO', 'PASS', '2017-11-05 00:22:32');
-
--- --------------------------------------------------------
-
---
 -- テーブルの構造 `users_table`
 --
 
@@ -54,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `users_table` (
   `uGrade` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `uSchool` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `indate` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- テーブルのデータのダンプ `users_table`
@@ -66,17 +46,12 @@ INSERT INTO `users_table` (`id`, `uName`, `uPassword`, `uPasswordCheck`, `uGrade
 (3, 'kosehiro', 'papa', 'papa', '1nen', 'sendai', '2017-11-05 00:49:07'),
 (4, 'hiroman', 'hiro', 'hiro', '1nen', 'kindai', '2017-11-05 17:40:40'),
 (5, 'kkk', 'kkk', 'kkk', '1nen', 'kindai', '2017-11-05 20:28:49'),
-(6, 'ttt', 'tttt', 'tttt', '1nen', 'kindai', '2017-11-05 20:33:46');
+(6, 'ttt', 'tttt', 'tttt', '1nen', 'kindai', '2017-11-05 20:33:46'),
+(7, 'hiromasa', 'pass2', 'pass2', '2nen', 'kindai', '2017-11-05 22:34:22');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `test`
---
-ALTER TABLE `test`
- ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users_table`
@@ -89,15 +64,10 @@ ALTER TABLE `users_table`
 --
 
 --
--- AUTO_INCREMENT for table `test`
---
-ALTER TABLE `test`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT for table `users_table`
 --
 ALTER TABLE `users_table`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
