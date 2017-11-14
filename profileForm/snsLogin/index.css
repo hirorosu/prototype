@@ -1,0 +1,24 @@
+@charset "UTF-8";
+#container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+#login {
+    text-align: center;
+    margin: 70px auto;
+}
+
+.btn {
+    background: #3b5998;
+    color: #fff;
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

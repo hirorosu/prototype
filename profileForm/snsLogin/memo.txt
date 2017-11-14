@@ -1,0 +1,30 @@
+ドットインストールの通りに進める
+
+ipアドレス
+192.168.30.10
+
+app id
+371506216634542
+
+app secret
+3704756d79983ef7896cc132d9b45f9a
+
+ver
+2.11
+
+create database dotinstall_fb_connect_php;
+grant all on dotinstall_fb_connect_php.* to dbuser@localhost identified by 'chAW6s6B';
+
+use dotinstall_fb_connect_php
+
+create table users (
+  id int not null auto_increment primary key,
+  fb_user_id bigint unique,
+  fb_name varchar(255),
+  fb_link varchar(255),
+  fb_access_token varchar(511),
+  created datetime,
+  modified datetime
+);
+
+desc テーブル名;
