@@ -71,14 +71,23 @@
 			<a href="signIn.php">
 				<p class="urlLink">既にアカウントお持ちの方はこちら</p>
 			</a>
+			<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
+			<!-- <a class="FbBtn" href="https://www.facebook.com/dialog/oauth?client_id={your-app-id}&amp;redirect_uri={redirect-uri}">
+				<div class="FbBtnLabel">Facebookでログイン</div>
+			</a> -->
 		</div>
 	</div>
 	<!-- .wrapper -->
 
 
+	<!-- aaaaaaaaaaaaaaaaaaaaaaaaa -->
+	<!-- aaaaaaaaaaaaaaaaaaaaaaaaa -->
+
+
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	    crossorigin="anonymous"></script>
 	<script src="js/index.js"></script>
+	<!-- <script src="js/loginFB.js"></script> -->
 </body>
 
 </html>

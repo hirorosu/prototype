@@ -20,15 +20,30 @@ body {
     background-color: #a7a7a7;
 }
 
+.iCon {
+    display: flex;
+}
+
+.iCon .iconImg {
+    width: 20px;
+    height: 20px;
+}
+
+.iconTitle {
+    font-size: 20px;
+}
+
 .item_center {
     background-color: rgb(255, 255, 255);
     padding: 20px;
     width: 30%;
+    border: 1px solid #C0C0C0;
+    box-shadow: 5px 5px 10px;
 }
 
 .wellcome {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 20px;
 }
 
@@ -55,4 +70,28 @@ body {
 
 .urlLink {
     color: #668ad8;
+}
+
+
+/*ここから下がスマホ対応のCSS*/
+
+@media screen and (max-width:480px) {
+    html {
+        font-size: 56.25%;
+    }
+    .main_visual {
+        background-image: url();
+        background-color: rgb(249, 249, 249);
+    }
+    .item_center {
+        width: 100%;
+        margin-top: 40px;
+        margin-right: 60px;
+        margin-left: 50px;
+        border: 1px solid #C0C0C0;
+    }
+    .aInput {
+        width: 100%;
+        height: 20px;
+    }
 }

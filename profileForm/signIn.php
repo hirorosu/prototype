@@ -14,6 +14,10 @@
 <body>
     <div class="main_visual">
         <div class="item_center">
+			<div class="iCon">
+				<img src="img/graduateIcon.jpg" alt="" class="iconImg">
+				<h1 class="iconTitle">逆求人高専生</h1>
+			</div>
 			<h1 class="wellcome">サインイン</h1>
 			<div class="form">
 				<!-- ハンドルネーム、パスワード、ajaxを使う -->
