@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+  #defaultCanvas0 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+  }
+</style>
+<header id="page-header">
+  <div class="container">
+    <nav>
+      <div class="site-id">
+        <a href="#">KOSEN - APPLICATION</a>
+      </div>
+      <div class="header-global-nav">
+        <ul>
+          <li>
+            <%= link_to("使い方", "/users/about")%>
+          </li>
+          <li>
+            <a href="#works">マイファイル</a>
+          </li>
+          <li>
+            <a href="#">企業からのオファー</a>
+          </li>
+          <li class="header-nav-sns">
+            <a href="#" target="_blank">
+              <i class="fa fa-twitter"></i>
+              <span class="hidden">Twitter</span>
+            </a>
+          </li>
+          <li class="header-nav-sns">
+            <a href="#" target="_blank">
+              <i class="fa fa-facebook-square"></i>
+              <span class="hidden">Facebook</span>
+            </a>
+          </li>
+          <li class="header-nav-sns">
+            <a href="#" target="_blank">
+              <i class="fa fa-instagram"></i>
+              <span class="hidden">Instagram</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main-visual-text">
+      <h1>KOSEN - APPLICATION</h1>
+      <p>ー高専生のための就活支援サービスー</p>
+    </div>
+    <div class="main-arrow">
+      <a href="#works">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<section id="works">
+  <h2>マイファイル</h2>
+  <p class="work-subtitle">プレゼン資料一覧</p>
+  <div class="container">
+    <section>
+      <h3>Report Title</h3>
+      <div class="work-photo">
+        <img src="/assets/img/presentation1.png" alt="">
+      </div>
+      <%= link_to("プレゼン資料１", "/users/show1") %>
+    </section>
+    <section>
+      <h3>Report Title</h3>
+      <div class="work-photo">
+        <img src="/assets/img/presentation2.png" alt="">
+      </div>
+      <%= link_to("プレゼン資料２", "/users/show2") %>
+    </section>
+    <section>
+      <h3>Report Title</h3>
+      <div class="work-photo">
+        <img src="/assets/img/presentation3.png" alt="">
+      </div>
+      <%= link_to("プレゼン資料３", "/users/show3") %>
+    </section>
+    <section>
+      <h3>Report Title</h3>
+      <div class="work-photo">
+        <img src="/assets/img/presentation4.png" alt="">
+      </div>
+      <%= link_to("プレゼン資料４", "/users/show4") %>
+    </section>
+  </div>
+  <div class="viewbutton">
+    <a href="#" class="fade">
+      <i class="fa fa-angle-right" aria-hidden="true"></i>VIEW MORE
+    </a>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/act.js"></script>
