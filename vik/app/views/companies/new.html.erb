@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/assets/css/companies_new.css">
+
+<div>
+  <% @companies.errors.full_messages.each do |message| %>
+    <div class="form-error">
+      <%= message %>
+    </div>
+  <% end %>
+</div>
+
+<div class="bg2">
+  <div class="box-flex">
+    <div class="box">
+
+
+      <%= form_tag("/companies/create") do %>
+        <div class="l-margin l1">
+          <h1>新規登録</h1>
+        </div>
+        <!-- l1 -->
+
+        <div class="l-margin l2-new">
+          <div class="l2-items-new">
+            <p class="l2-items-name">企業名</p>
+            <input class="l2-input l2-bc-c" type="text" name="c_name" value="<%= @companies.c_name %>" placeholder="（例）株式会社vi_kosen">
+          </div>
+          <div class="l2-items-new">
+            <p class="l2-items-name">メールアドレス</p>
+            <input class="l2-input l2-bc-m" type="text" name="c_email" value="<%= @companies.c_email %>" placeholder="（例）test123@vi_kosen.com">
+          </div>
+          <div class="l2-items-new">
+            <p class="l2-items-name">パスワード</p>
+            <input class="l2-input l2-bc-k" type="password" name="c_password" value="<%= @companies.c_password %>">
+          </div>
+        </div>
+        <!-- l2 -->
+
+        <div class="l-margin l3">
+          <input class="l2-sub" type="submit" value="新規登録">
+          <div class="other-type">
+            <a href="/companies/login_form" class="other-link">アカウントをもう持ってる？</a>
+            <a href="/home/index" class="other-link">トップページに戻る？</a>
+          </div>
+        </div>
+        <!-- l3 -->
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function() {
+        console.log("JSok");
+        //企業名の方
+        $('input[name="c_name"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-c").css("background", "#fff");
+            }
+        });
+        //メールアドレスの方
+        $('input[name="c_email"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-m").css("background", "#fff");
+            }
+        });
+        //パスワードの方
+        $('input[name="c_password"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-k").css("background", "#fff");
+            }
+        });
+    });
+</script>

@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="/assets/css/companies_new.css">
+
+<div>
+  <% @students.errors.full_messages.each do |message| %>
+    <div class="form-error">
+      <%= message %>
+    </div>
+  <% end %>
+</div>
+
+<div class="bg3">
+  <div class="box-flex">
+    <div class="box">
+
+
+      <%= form_tag("/students/create") do %>
+        <div class="l-margin l1">
+          <h1>新規登録</h1>
+        </div>
+        <!-- l1 -->
+
+        <div class="l-margin l2-new">
+          <div class="l2-items-new">
+            <p class="l2-items-name">名前</p>
+            <input class="l2-input l2-bc-c" type="text" name="s_name" value="<%= @students.s_name %>" placeholder="（例）小瀬川博将">
+          </div>
+          <div class="l2-items-new">
+            <p class="l2-items-name">メールアドレス</p>
+            <input class="l2-input l2-bc-m" type="text" name="s_email" value="<%= @students.s_email %>" placeholder="（例）g21125@rcs.kutc.jp">
+          </div>
+          <div class="l2-items-new">
+            <p class="l2-items-name">パスワード</p>
+            <input class="l2-input l2-bc-k" type="password" name="s_password" value="<%= @students.s_password %>">
+          </div>
+          <div class="l2-items-new">
+            <p class="l2-items-name">高専名</p>
+            <input class="l2-input l2-bc-k" type="text" name="s_school" value="<%= @students.s_school %>" placeholder="（例）近畿大学工業高等専門学校">
+          </div>
+          <div class="l2-items-new">
+            <p class="l2-items-name">学年</p>
+            <input class="l2-input l2-bc-k" type="text" name="s_grade" value="<%= @students.s_grade %>" placeholder="（例）5年">
+          </div>
+        </div>
+        <!-- l2 -->
+
+        <div class="l-margin l3">
+          <input class="l2-sub" type="submit" value="新規登録">
+          <div class="other-type">
+            <a href="/students/login_form" class="other-link">アカウントをもう持ってる？</a>
+            <a href="/home/index" class="other-link">トップページに戻る？</a>
+          </div>
+        </div>
+        <!-- l3 -->
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function() {
+        console.log("JSok");
+        // 企業名の方
+        $('input[name="s_name"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-c").css("background", "#fff");
+            }
+        });
+        // メールアドレスの方
+        $('input[name="s_email"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-m").css("background", "#fff");
+            }
+        });
+        // パスワードの方
+        $('input[name="s_password"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-k").css("background", "#fff");
+            }
+        });
+        // 学校の方
+        $('input[name="s_school"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-k").css("background", "#fff");
+            }
+        });
+        // 学年の方
+        $('input[name="s_grade"]').blur(function() {
+            if($(this).val() == "") {
+                console.log('空です');
+            } else {
+                $(".l2-bc-k").css("background", "#fff");
+            }
+        });
+    });
+</script>

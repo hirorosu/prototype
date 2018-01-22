@@ -1,0 +1,47 @@
+<div class="header">
+  <!-- ログインしている時 -->
+  <% if session[:companies_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/students/select" class="header-nav header-nav-r"><p>参加学生を見る</p></a>
+      <% company_id = session[:companies_id]%>
+      <a href="<%= "/companies/my_page/#{company_id}" %>" class="header-nav header-nav-r"><p><%= session[:companies_name] %></p></a>
+      <a href="/logout" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+  <% elsif session[:students_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/companies/select" class="header-nav header-nav-r"><p>参加企業を見る</p></a>
+      <% student_id = session[:students_id]%>
+      <a href="<%= "/students/my_page/#{student_id}" %>" class="header-nav header-nav-r"><p><%= session[:students_name] %></p></a>
+      <a href="/logout/students" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+    <!-- ログインしてない時 -->
+  <% else %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/students/login_form" class="header-nav header-nav-r"><p>ログインする</p></a>
+      <a href="/students/new" class="header-nav header-nav-r"><p>新規登録する</p></a>
+    </div>
+  <% end %>
+</div>
+<!-- // header -->
+
+<% if session[:companies_name] %>
+  <% current_user =  session[:companies_id] %>
+  <a href="<%= "/companies/my_page/#{current_user}" %>">マイページに戻る</a>
+<% elsif session[:students_name] %>
+  <% current_user =  session[:students_id] %>
+  <a href="<%= "/students/my_page/#{current_user}" %>">マイページに戻る</a>
+<% else %>
+<% end %>
+

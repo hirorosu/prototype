@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>vi kosen</title>
+  <%= csrf_meta_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<body>
+  <% if flash[:notice] %>
+    <div class="flash fade-out">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <%= yield %>
+</body>
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(function() {
+        $('.fade-out').slideUp(3000);
+        // $('.fade-out').hide(3000);
+    });
+</script>
+
+</html>

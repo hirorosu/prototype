@@ -1,0 +1,155 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ヘッダー部分
+.header {
+  background-color: #0168b3;
+  display: flex;
+  justify-content: space-between;
+}
+.header-right {
+  display: flex;
+}
+.header-left {
+  padding: 27px;
+  margin-left: 30px;
+}
+.header-left:hover {
+  // #E5EFF7と229,239,247が同じ色
+  background-color: rgba(229,239,247, 0.3);
+}
+.header-nav {
+  color: #e8e6f3;
+  text-decoration: none;
+}
+.header-nav-r {
+  padding: 27px;
+  margin-right: 30px;
+}
+.header-nav-r:hover {
+  // #E5EFF7と229,239,247が同じ色
+  background-color: rgba(229,239,247, 0.3);
+}
+
+// 切り替え部分
+.ch-select {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+// 表示する画像
+.img-tri {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+// ボード表示
+.com1 {
+  width: 85%;
+  text-align: center;
+  //border: solid 2px #f7d47a;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  border: thin solid #dcdcdc;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+.com1-link {
+  margin-top: 20px;
+  color: #0168b3;
+  text-decoration: none;
+  text-decoration: underline;
+}
+.com-margin {
+  margin: 40px;
+}
+.com-flex {
+  display: flex;
+  align-items: center;
+}
+.tet-com {
+  padding-left: 50px;
+}
+.detail {
+  margin-left: 500px;
+}
+
+// カード表示
+.com2-flex {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  //justify-content: left;
+  justify-content: center;
+  align-items: center;
+}
+.com2 {
+  width: 200px;
+  background-color: #f5f5f5;
+  border: thin solid #dcdcdc;
+  padding: 30px 0;
+  margin: 20px 20px;
+  text-align: center;
+}
+.com2-link {
+  margin-top: 40px;
+  color: #0168b3;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+// 企業のリンク部分、長くなるところ、特にcom1あたり（企業）
+.c_content-width {
+  width: 200px;
+}
+.com1-c {
+  width: 95%;
+  text-align: center;
+  //border: solid 2px #f7d47a;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  border: thin solid #dcdcdc;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.company-link {
+  color: #0168b3;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+
+// index
+.l-height {
+  line-height: 30px;
+}
+.l-height2 {
+  line-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.works-l-margin {
+  margin-top: 40px;
+}
+.works-l-margin2 {
+  margin-top: 40px;
+  margin-bottom: 200px;
+}
+
+// JS連動部分
+.now {
+  color: #f7d47a;
+  text-decoration: underline;
+}
+.n-now:hover {
+  color: #f7d47a;
+  text-shadow: 0.5px 0.5px 1px #f7d47a;
+  text-decoration: underline;
+  cursor : pointer;
+}

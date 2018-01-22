@@ -1,0 +1,94 @@
+<div class="header">
+  <!-- ログインしている時 -->
+  <% if session[:students_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/companies/select" class="header-nav header-nav-r"><p>参加企業を見る</p></a>
+      <% student_id = session[:students_id]%>
+      <a href="<%= "/students/my_page/#{student_id}" %>" class="header-nav header-nav-r"><p><%= session[:students_name] %></p></a>
+      <a href="/logout/students" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+    <!-- ログインしてない時 -->
+  <% elsif session[:companies_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/students/select" class="header-nav header-nav-r"><p>参加学生を見る</p></a>
+      <% company_id = session[:companies_id]%>
+      <a href="<%= "/companies/my_page/#{company_id}" %>" class="header-nav header-nav-r"><p><%= session[:companies_name] %></p></a>
+      <a href="/logout" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+  <% end %>
+</div>
+<!-- // header -->
+
+<div>
+  <% @students.errors.full_messages.each do |message| %>
+    <div class="form-error">
+      <%= message %>
+    </div>
+  <% end %>
+</div>
+
+<div class="c-my_page-title">
+  <h1>マイページ</h1>
+</div>
+
+<% if @students.id == session[:students_id] %>
+  <div class="c-content1">
+    <a href="<%= "/students/my_page/#{@students.id}" %>" class="c-edit-btn-back-link"><p class="c-edit-btn-back-word">もどる</p></a>
+
+    <%= form_tag("/students/#{@students.id}/updates_live_id") do %>
+      <div class="l-margin l2-new">
+        <div class="l2-items-new">
+          <input class="l2-input l2-bc-c" type="text" name="s_live_id" value="<%= @students.s_live_id %>" placeholder="配信idを入力してください">
+        </div>
+      </div>
+      <!-- // l-margin-->
+      <div class="c_edit-btn-save">
+        <input class="c-my_page-img-btn" type="submit" value="配信を確定">
+      </div>
+      <!-- // c_edit-btn-save -->
+    <% end %>
+  </div>
+  <!-- // c-content1 -->
+  <div class="pdf-area">
+    <embed src="<%= "/student_pdf/#{@students.pdf}" %>" type="application/pdf" width="100%" height="800px" class="pdf-width pdf">
+  </div>
+<% elsif session[:companies_id] %>
+  <div class="c-content1">
+    <a href="<%= "/likes/create/#{@students.id}" %>"><p class="com1-link com1-center">この学生をオファーする</p></a>
+    <a href="" class="c-content-edit com1-center"><p class="live">ライブ配信中の学生を見る</p></a>
+    <p><%= @students.s_live_id %></p>
+  </div>
+  <!-- // c-content1 -->
+  <div class="pdf-area">
+    <embed src="<%= "/student_pdf/#{@students.pdf}" %>" type="application/pdf" width="100%" height="800px" class="pdf-width pdf">
+  </div>
+<% end %>
+
+
+<div class="footer">
+  <div class="footer-flex">
+    <a href="/" class="footer-link"><p>お問い合わせ</p></a>
+    <p class="footer-text">Powered by vi kosen.</p>
+  </div>
+</div>
+<!-- // footer-->
+
+
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function() {
+        $(".live").on("click", function() {
+            window.open("http://kose-hiro.sakura.ne.jp/sample/webrtc2/index.html","window1","top=50,left=50,width=450,height=500,scrollbars=1");
+        });
+    });
+</script>

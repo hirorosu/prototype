@@ -1,0 +1,66 @@
+<div class="bg">
+  <div class="box-flex">
+    <div class="box">
+      <%= form_tag("/login") do %>
+        <div class="l-margin l1">
+          <h1>ログイン</h1>
+        </div>
+
+        <div class="l-margin l2">
+          <!-- errorの場合 -->
+          <% if @error_message %>
+            <div class="form-error">
+              <%= @error_message %>
+            </div>
+          <% end %>
+          <!-- // errorの場合 -->
+          <div class="l2-items">
+            <img class="l2-u" src="/assets/img/input/user.png" alt="">
+            <input class="l2-input l2-bc-u" type="text" name="c_email" placeholder="　 メールアドレス">
+          </div>
+          <div class="l2-items">
+            <img class="l2-k" src="/assets/img/input/key.png" alt="">
+            <input class="l2-input l2-bc-k" type="password" name="c_password" placeholder="　 パスワード">
+          </div>
+        </div>
+
+        <div class="l-margin l3">
+          <input class="l2-sub" type="submit" value="ログイン">
+          <div class="other-type">
+            <a href="/companies/new" class="other-link">アカウントまだ持ってない？</a>
+            <!--<a href="/" class="other-link">パスワードを忘れた？</a>-->
+            <a href="/home/index" class="other-link">トップページに戻る？</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script>
+  $(function() {
+      // 名前の方
+      $('input[name="c_email"]').change(function() {
+          $(".l2-u").addClass("d-n");
+      });
+      $('input[name="c_email"]').blur(function() {
+          if($(this).val() == "") {
+              $(".l2-u").removeClass("d-n");
+          } else {
+              $(".l2-bc-u").css("background", "#fff");
+          }
+      });
+      // パスワードの方
+      $('input[name="c_password"]').change(function() {
+          $(".l2-k").addClass("d-n");
+      });
+      $('input[name="c_password"]').blur(function() {
+          if($(this).val() == "") {
+              $(".l2-k").removeClass("d-n");
+          } else {
+              $(".l2-bc-k").css("background", "#fff");
+          }
+      });
+  });
+</script>

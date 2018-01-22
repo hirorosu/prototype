@@ -1,0 +1,102 @@
+<div class="header">
+  <!-- ログインしている時 -->
+  <% if session[:companies_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/students/select" class="header-nav header-nav-r"><p>参加学生を見る</p></a>
+      <% company_id = session[:companies_id]%>
+      <a href="<%= "/companies/my_page/#{company_id}" %>" class="header-nav header-nav-r"><p><%= session[:companies_name] %></p></a>
+      <a href="/logout" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+    <!-- ログインしてない時 -->
+  <% elsif session[:companies_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/students/select" class="header-nav header-nav-r"><p>参加学生を見る</p></a>
+      <% company_id = session[:companies_id]%>
+      <a href="<%= "/companies/my_page/#{company_id}" %>" class="header-nav header-nav-r"><p><%= session[:companies_name] %></p></a>
+      <a href="/logout" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+  <% end %>
+</div>
+<!-- // header -->
+
+<div class="c-my_page-title">
+  <h1>参加学生一覧</h1>
+</div>
+
+<div class="c-content-title">
+  <h2>表示方法の切り替え</h2>
+</div>
+
+<ul class="tabMenu ch-select">
+  <li class="now n-now">ボード表示</li>
+  <div>　／　</div>
+  <li class="n-now">カード表示</li>
+</ul>
+
+<ul class="textArea">
+  <li>
+    <% @students.each do |student| %>
+      <div class="com1">
+        <div class="com-margin com-flex">
+          <div>
+            <img src="<%= "/student_images/#{student.image}" %>" alt="" class="img-tri">
+            <a href="<%= "/students/my_page/#{student.id}" %>"><p class="com1-link"><%= student.s_name %></p></a>
+          </div><!-- //  -->
+        </div>
+        <!-- // com-margin com-flex -->
+        <div class="com-margin com-flex">
+          <p>高専：</p>
+          <p><%= student.s_school %></p>
+        </div>
+        <!-- // com-margin com-flex -->
+        <div class="com-margin com-flex">
+          <p>学年：</p>
+          <p><%= student.s_grade %></p>
+        </div>
+        <!-- // com-margin com-flex -->
+        <div class="com-margin com-flex">
+          <p>配信日：</p>
+          <p>2018年1月10日</p>
+        </div>
+        <!-- // com-margin com-flex -->
+        <div class="com-margin com-flex">
+          <!--<embed src="<%= "/student_pdf/#{student.pdf}" %>" type="application/pdf" width="300px" height="300px">-->
+        </div><!-- // com-margin com-flex -->
+      </div><!-- // com1 -->
+    <% end %>
+  </li>
+  <!-- //  -->
+
+  <li class="text">
+    <% @students.each do |student| %>
+      <div class="com2-flex">
+        <div class="com2">
+          <img src="<%= "/student_images/#{student.image}" %>" alt="" class="img-tri">
+          <a href="<%= "/students/my_page/#{student.id}" %>"><p class="com1-link"><%= student.s_name %></p></a>
+        </div><!-- // com2 -->
+      </div>
+    <% end %>
+  </li>
+  <!-- // text -->
+</ul>
+
+
+<div class="footer">
+  <div class="footer-flex">
+    <a href="/" class="footer-link"><p>お問い合わせ</p></a>
+    <p class="footer-text">Powered by vi kosen.</p>
+  </div>
+</div>
+<!-- // footer-->
+
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/js/switch_select.js"></script>

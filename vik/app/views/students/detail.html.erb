@@ -1,0 +1,153 @@
+<div class="header">
+  <!-- ログインしている時 -->
+  <% if session[:students_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/companies/select" class="header-nav header-nav-r"><p>参加企業を見る</p></a>
+      <% student_id = session[:students_id]%>
+      <a href="<%= "/students/my_page/#{student_id}" %>" class="header-nav header-nav-r"><p><%= session[:students_name] %></p></a>
+      <a href="/logout/students" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+    <!-- ログインしてない時 -->
+
+  <% elsif session[:companies_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/students/select" class="header-nav header-nav-r"><p>参加学生を見る</p></a>
+      <% company_id = session[:companies_id]%>
+      <a href="<%= "/companies/my_page/#{company_id}" %>" class="header-nav header-nav-r"><p><%= session[:companies_name] %></p></a>
+      <a href="/logout" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+  <% end %>
+</div>
+<!-- // header -->
+
+<div>
+  <% @students.errors.full_messages.each do |message| %>
+    <div class="form-error">
+      <%= message %>
+    </div>
+  <% end %>
+</div>
+
+<div class="c-my_page-title">
+  <h1>マイページ</h1>
+</div>
+
+<div class="c-content-title">
+  <h2>学生情報</h2>
+</div>
+
+<div class="c-my_page-box">
+
+  <div class="c-img">
+    <img class="c-my_page-img" src="<%= "/student_images/#{@students.image}" %>" alt="">
+    <!--ログインユーザと一般ユーザの見せ方の制御-->
+    <% if @students.id == session[:students_id] %>
+      <%= form_tag("/students/#{@students.id}/update_img", {multipart:true}) do %>
+        <p class="c-my_page-img-margin">画像を変更する</p>
+        <input class="c-my_page-img-margin" type="file" name="image">
+        <input class="c-my_page-img-btn" type="submit" value="保存">
+      <% end %>
+      <!-- // form_tag-->
+    <% else %>
+      <p>名前：<%= @students.s_name %></p>
+    <% end %>
+    <!-- // if-->
+  </div>
+  <!-- c-img -->
+
+  <div class="c-content-title">
+    <h2>詳細情報</h2>
+  </div>
+
+  <div class="c-content1">
+    <p>名前：<%= @students.s_name %></p>
+    <p>連絡先：<%= @students.s_email %></p>
+    <p>学校：<%= @students.s_school %></p>
+    <p>学年：<%= @students.s_grade %></p>
+    <!--企業とユーザの見せ方の制御-->
+    <% if @students.id == session[:students_id] %>
+      <a href="<%= "/students/my_page/#{@students.id}/edit_top" %>" class="c-content-edit"><p class="c-content-edit-word">編集する</p></a>
+    <% end %>
+  </div>
+  <!-- c-content1 -->
+
+  <!--ログインユーザと一般ユーザの見せ方の制御-->
+  <% if @students.id == session[:students_id] %>
+    <div class="c-content2">
+      <div class="c-content2-items">
+        <%= form_tag("/students/#{@students.id}/update_pdf", {multipart:true}) do %>
+          <p class="c-my_page-img-margin">PDFファイルをアップロード</p>
+          <input class="c-my_page-img-margin" type="file" name="pdf">
+          <input class="c-my_page-img-btn" type="submit" value="アップロード">
+        <% end %>
+        <!-- // form_tag-->
+        <p class="c-content2-items-row">アップロード済み資料</p>
+        <a href="<%= "/students/my_page/#{@students.id}/show/#{@students.id}" %>" class="c-content-edit"><p class="c-content-edit-word">確認する</p></a>
+        <a href="<%= "/students/my_page/#{@students.id}/show/#{@students.id}" %>" class="c-content-edit"><p class="c-content-edit-word live">配信する</p></a>
+      </div>
+      <!-- c-content2-items -->
+    </div>
+    <!-- c-content2 -->
+  <% elsif session[:companies_id] %>
+    <div class="c-content2">
+      <div class="c-content2-items">
+        <p class="c-content2-items-row">アップロード済み資料</p>
+        <a href="<%= "/students/my_page/#{@students.id}/show/#{@students.id}" %>" class="c-content-edit"><p class="c-content-edit-word">配信に参加</p></a>
+      </div>
+      <!-- c-content2-items -->
+    </div>
+    <!-- c-content2 -->
+  <% end %>
+
+
+
+
+  <!--ログインユーザと一般ユーザの見せ方の制御-->
+  <% if @students.id == session[:students_id] %>
+    <div class="c-content-title">
+      <h2>あなたをオファーした企業</h2>
+    </div>
+
+    <div class="c-content2">
+      <div class="c-content2-items">
+
+        <% @likes.each do |like| %>
+        <% offered_company = Company.find_by(id: like.post_id) %>
+          <a href="<%= "/companies/my_page/#{offered_company.id}" %>"><p class="com1-link"><%= offered_company.c_name %></p></a>
+        <% end %>
+
+      </div>
+      <!-- c-content2-items -->
+    </div>
+    <!-- c-content2 -->
+  <% end %>
+
+</div>
+<!-- c-my_page-box -->
+
+<div class="footer">
+  <div class="footer-flex">
+    <a href="/" class="footer-link"><p>お問い合わせ</p></a>
+    <p class="footer-text">Powered by vi kosen.</p>
+  </div>
+</div>
+<!-- // footer-->
+
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function() {
+        $(".live").on("click", function() {
+            window.open("http://kose-hiro.sakura.ne.jp/sample/webrtc/index.html","window1","top=50,left=50,width=450,height=500,scrollbars=1");
+        });
+    });
+</script>

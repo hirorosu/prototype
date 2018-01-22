@@ -1,0 +1,96 @@
+<div class="header">
+  <!-- ログインしている時 -->
+  <% if session[:students_name] %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/companies/select" class="header-nav header-nav-r"><p>参加企業を見る</p></a>
+      <% student_id = session[:students_id]%>
+      <a href="<%= "/students/my_page/#{student_id}" %>" class="header-nav header-nav-r"><p><%= session[:students_name] %></p></a>
+      <a href="/logout/students" class="header-nav header-nav-r"><p>ログアウト</p></a>
+    </div>
+    <!-- ログインしてない時 -->
+  <% else %>
+    <div class="header-left">
+      <a href="/home/index" class="header-nav header-nav-l"><p>vi高専 -vi kosen-</p></a>
+    </div>
+    <div class="header-right">
+      <!--<a href="/home/about" class="header-nav header-nav-r"><p>vi kosenとは</p></a>-->
+      <a href="/students/login_form" class="header-nav header-nav-r"><p>ログインする</p></a>
+      <a href="/students/new" class="header-nav header-nav-r"><p>新規登録する</p></a>
+    </div>
+  <% end %>
+</div>
+<!-- // header -->
+
+<div class="c-my_page-title">
+  <h1>参加企業一覧</h1>
+</div>
+
+<div class="c-content-title">
+  <h2>表示方法の切り替え</h2>
+</div>
+
+<ul class="tabMenu ch-select">
+  <li class="now n-now">ボード表示</li>
+  <div>　／　</div>
+  <li class="n-now">カード表示</li>
+</ul>
+
+<ul class="textArea">
+  <li>
+    <% @companies.each do |company| %>
+      <div class="com1-c">
+        <div class="com-margin com-flex">
+          <div>
+            <img src="<%= "/company_images/#{company.image}" %>" alt="" class="img-tri">
+            <a href="<%= "/companies/my_page/#{company.id}" %>"><p class="com1-link"><%= company.c_name %></p></a>
+          </div><!-- //  -->
+        </div>
+        <!-- // com-margin com-flex -->
+        <div class="com-margin com-flex">
+          <p>業界：</p>
+          <p><%= company.c_industry %></p>
+        </div>
+        <!-- // com-margin com-flex -->
+        <div class="com-margin com-flex">
+          <p>地域：</p>
+          <p><%= company.c_place %></p>
+        </div>
+        <!-- // com-margin com-flex -->
+        <div class="com-margin com-flex">
+          <p>企業ビジョン：</p>
+          <p class="c_content-width"><%= company.c_content %></p>
+        </div><!-- // com-margin com-flex -->
+      </div><!-- // com1 -->
+    <% end %>
+  </li>
+  <!-- //  -->
+
+  <li class="text">
+    <% @companies.each do |company| %>
+      <div class="com2-flex">
+        <div class="com2">
+          <img src="<%= "/company_images/#{company.image}" %>" alt="" class="img-tri">
+          <a href="<%= "/companies/my_page/#{company.id}" %>"><p class="com1-link"><%= company.c_name %></p></a>
+        </div><!-- // com2 -->
+      </div>
+    <% end %>
+  </li>
+  <!-- // text -->
+</ul>
+
+
+<div class="footer">
+  <div class="footer-flex">
+    <a href="/" class="footer-link"><p>お問い合わせ</p></a>
+    <p class="footer-text">Powered by vi kosen.</p>
+  </div>
+</div>
+<!-- // footer-->
+
+
+<script src="/assets/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/js/switch_select.js"></script>
